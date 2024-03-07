@@ -1,3 +1,3 @@
-module onascimentodobitcoin.com.br
+module nascimentodobtc.com.br
 
 go 1.22.0

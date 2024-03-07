@@ -70,6 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.chapter').forEach((element, index) => {
             element.style.display = index === chapter - 1 ? 'block' : 'none';
         });
+
+        const element = document.getElementById('chapter' + currentChapter);
+
+        // Scroll to the element
+        window.scrollTo({
+        top: element.offsetTop, // Y-coordinate
+        left: 0, // X-coordinate (usually 0 if you're only scrolling vertically)
+        behavior: 'smooth' // Optional: this enables smooth scrolling
+        });
     }
 
     document.getElementById('nextChapter').addEventListener('click', function() {

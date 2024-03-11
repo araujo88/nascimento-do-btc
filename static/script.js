@@ -71,14 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.display = index === chapter - 1 ? 'block' : 'none';
         });
 
-        const element = document.getElementById('chapter' + currentChapter);
-
-        // Scroll to the element
-        window.scrollTo({
-        top: element.offsetTop, // Y-coordinate
-        left: 0, // X-coordinate (usually 0 if you're only scrolling vertically)
-        behavior: 'smooth' // Optional: this enables smooth scrolling
-        });
+        const element = document.getElementById('chapter' + currentChapter).scrollIntoView();
     }
 
     document.getElementById('nextChapter').addEventListener('click', function() {
@@ -88,7 +81,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    document.getElementById('nextChapterBtn').addEventListener('click', function() {
+        if (currentChapter < totalChapters) {
+            currentChapter++;
+            showChapter(currentChapter);
+        }
+    });
+
+
     document.getElementById('prevChapter').addEventListener('click', function() {
+        if (currentChapter > 1) {
+            currentChapter--;
+            showChapter(currentChapter);
+        }
+    });
+
+    document.getElementById('prevChapterBtn').addEventListener('click', function() {
         if (currentChapter > 1) {
             currentChapter--;
             showChapter(currentChapter);
@@ -115,4 +123,3 @@ document.addEventListener('DOMContentLoaded', function() {
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
-  
